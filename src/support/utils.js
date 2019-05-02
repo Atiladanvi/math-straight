@@ -1,20 +1,18 @@
 
-const Print =  {
-  dump: function(){
-    console.log(this)
-  },
-  consoleFunction: function(fn){
-    console.log(`${fn}: ${this[fn]()}`)
-  },
-  console: function(value){
-    console.log(value)
-  }
-}
-
 const Test = {
-  equals: function(expected, value){
-    return expected === value; 
-  }
+  assert: function(){
+    return this.expect === this.value; 
+  },
+  dump: function(fn){
+    console.log(`${this.name} | result ${this.assert()} | expect: ${this.expect}| value: ${this.value}`)
+  },
 }
 
-export { Print, Test }
+function makeTest(obg = {}){
+  return Object.assign({
+    name: obg.name,
+    expect: obg.expect,
+    value: obg.value
+  }, Test)
+}
+export default makeTest

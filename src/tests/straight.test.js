@@ -1,9 +1,5 @@
 import { Line } from './../straight'
-import { Print, Test } from './../support/utils'
-
-const Teste = (obj = {}) =>{
-  return Object.assign(Line(obj), Print, Test)
-}
+import  Test  from './../support/utils'
 
 const points = [
   {
@@ -11,13 +7,17 @@ const points = [
     y: 0
   },
   {
-    x: 2,
-    y: 3
+    x: 1,
+    y: 1
   }
 ];
 
-const straight1 =  Teste({points});
+const line1 = Line({points: points})
 
-straight1.dump()
-straight1.consoleFunction('tangente')
-straight1.console(straight1.equals(1 , straight1.tangente()))
+const test1 = Test({
+  name: 'Testa a tangente da linha',
+  expect: 1,
+  value: line1.tangente()
+})
+
+test1.dump()
