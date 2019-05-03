@@ -11,4 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Atiladanvi/math-straight.git"
   },
+  "dependencies": {
+   "fs" : "0.0.1-security"
+  },
 }

@@ -7,10 +7,8 @@ const LinePrototype = {
   }
 };
 
-const Line = function(obj = {}){
+export function Line(obj = {}){
   return Object.assign(LinePrototype , {        
    points: obj.points
   });
 } 
-
-export default Line;
